@@ -1,6 +1,6 @@
-import BenefitGateway from "./BenefitGateway";
-import Cpf from "./Cpf";
-import Retiree from "./Retiree";
+import BenefitGateway from "../infra/gateway/interface/BenefitGateway";
+import Cpf from "../entity/Cpf";
+import Retiree from "../entity/Retiree";
 
 export default class GetRegistrationNumberByCpf {
   constructor (readonly benefitGateway: BenefitGateway) {}

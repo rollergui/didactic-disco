@@ -1,5 +1,5 @@
-import Cpf from "../src/Cpf";
-import Retiree from "../src/Retiree";
+import Cpf from "../src/entity/Cpf";
+import Retiree from "../src/entity/Retiree";
 
 test("Should create retiree without benefits", function() {
   const retiree = new Retiree(new Cpf("333.720.717-00"));
