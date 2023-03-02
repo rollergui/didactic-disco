@@ -9,7 +9,7 @@ export default class Retiree {
     return this.benefits;
   }
 
-  addBenefitRegistrationNumber(registrationNumber: string): void {
-    this.benefits.push(registrationNumber);
+  addBenefitRegistrationNumbers(registrationNumber: string[]): void {
+    this.benefits.push(...registrationNumber);
   }
 }

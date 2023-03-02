@@ -8,7 +8,6 @@ test("Should create retiree without benefits", function() {
 
 test("Should create retiree with registered benefits", function() {
   const retiree = new Retiree(new Cpf("333.720.717-00"));
-  retiree.addBenefitRegistrationNumber("123");
-  retiree.addBenefitRegistrationNumber("234");
+  retiree.addBenefitRegistrationNumbers(["123", "234"]);
   expect(retiree.getBenefitRegistrationNumbers()).toHaveLength(2);
 });
