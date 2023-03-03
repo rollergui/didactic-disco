@@ -1,9 +1,11 @@
+import InvalidCpfError from "../error/InvalidCpfError";
+
 export default class Cpf {
 	readonly number: string;
 
 	constructor (cpf: string) {
     const cleanCpf = this.clean(cpf);
-		if (!this.validate(cleanCpf)) throw new Error("Invalid cpf");
+		if (!this.validate(cleanCpf)) throw new InvalidCpfError();
 		this.number = cleanCpf;
 	}
 

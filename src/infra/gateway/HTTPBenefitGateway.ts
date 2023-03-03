@@ -13,15 +13,11 @@ export default class HTTPBenefitGateway implements BenefitGateway {
       `${this.baseUrl}/login`,
       { login: username, senha: password }
     );
-    if (loginResponse.status !== 200) throw new Error("Invalid credentials");
     const token = loginResponse?.headers?.authorization;
-    if (!token) throw new Error("Token missing");
-
     const response = await this.httpClient.get(
       `${this.baseUrl}/offline/listagem/${cpf}`,
       { Authorization: token }
     );
     return response.data.beneficios.map((b: any) => b.nb);
   }
-
 }
