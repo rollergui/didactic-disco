@@ -21,6 +21,9 @@ export default class BenefitController {
       "/fetch-benefit-numbers",
       async (req: Request, res: Response, next: NextFunction) => {
         try {
+          const {cpf, username, password} = req.body;
+          if (!cpf || !username || !password)
+            throw new HTTPError({message: `Os campos "cpf", "username" e "password" são obrigatórios`}, 400)
           const output = await this.getRegistrationNumberByCpf.execute(req.body);
           res.json(output);
         } catch(error: any) {
@@ -34,6 +37,9 @@ export default class BenefitController {
     this.app.use((error: any, req: Request, res: Response, next: NextFunction) => {
       let httpError: HTTPError;
       switch(error.constructor) {
+        case HTTPError:
+          httpError = error;
+          break;
         case AxiosError:
           httpError = new HTTPError(error.response.data, error.response.status);
           break;
@@ -41,7 +47,6 @@ export default class BenefitController {
           httpError = new HTTPError(error.message, 422);
           break;
         default:
-          console.log("default error")
           httpError = new HTTPError(error.message);
       }
       HTTPErrorHandler.handle(httpError, res);
