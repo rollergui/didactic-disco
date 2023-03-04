@@ -15,3 +15,8 @@
 	  "cpf": ""
   }'
   ```
+
+## Testing:
+- run `npm install`
+- run unit tests with `npm run test:unit`
+- run all tests with `npm run test` (this depends on the starting the server)

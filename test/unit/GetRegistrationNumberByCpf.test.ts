@@ -1,5 +1,5 @@
-import BenefitGateway from "../src/infra/gateway/interface/BenefitGateway";
-import GetRegistrationNumberByCpf from "../src/usecase/GetRegistrationNumberByCpf";
+import BenefitGateway from "../../src/infra/gateway/interface/BenefitGateway";
+import GetRegistrationNumberByCpf from "../../src/usecase/GetRegistrationNumberByCpf";
 
 test("Should return benefit number list", async function() {
   const benefitGateway: BenefitGateway = {

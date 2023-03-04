@@ -1,4 +1,4 @@
-import Cpf from "../src/entity/Cpf";
+import Cpf from "../../src/entity/Cpf";
 
 test.each([
 	"407.302.170-27",
@@ -18,5 +18,5 @@ test.each([
 	"222.222.222-22",
   ""
 ])("Should test invalid cpf", function (value) {
-	expect(() => new Cpf(value)).toThrow(new Error("Invalid cpf"));
+	expect(() => new Cpf(value)).toThrow(new Error("Cpf inválido"));
 });
